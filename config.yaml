@@ -1,0 +1,26 @@
+#enter sample names here
+#the sample name is everything that comes before '.fastq.gz' in your raw reads file
+samples:
+    - "Sample1"
+    - "Sample2"
+    - "Sample3"
+    - "Sample4"
+    - "Sample5"
+    - "Sample6"
+
+#change directory path to index and reference genome if needed
+#note that the genome file for the index and the gtf reference must match
+#for example, if the index was based on a genome from UCSC, then the gtf must also be UCSC
+bowtie2_index:
+    - "/mnt/research/Olive_Research_Group/Bowtie2_Indexes/GRCm39/GRCm39"
+reference_genome:
+    - "/mnt/research/Olive_Research_Group/Reference_Genomes/GRCm39.gtf"
+    
+#this should never have to change
+cluster:
+  mkdir -p logs/{rule} &&
+  sbatch
+    --cpus-per-task={threads}
+    --job-name=smk-{rule}-{wildcards}
+    --output=logs/{rule}/{rule}-{wildcards}-%j.out
+    --time={resources.runtime}
