@@ -1,0 +1,19 @@
+Directory Map:
+
+.
+|--data
+    |--<raw fastqs here>
+    |--counts (will be produced by analysis)
+    |--fastqc (will be produced by analysis)
+    |--mapped (will be produced by analysis)
+|--logs
+    |--bowtie2 (will br produced by analysis)
+    |--counts (will be produced by analysis)
+    |--fastqc (will be produced by analysis)
+    |--multiqc (will be produced by analysis)
+|--multiqc_data (will be produced by analysis
+|--resources
+    |--config.yaml (for cluster configuration)
+|--config.yaml (for snakemake configuration)
+|--Snakefile
+|--snakemake_env.yml
